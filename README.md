@@ -62,14 +62,14 @@ A web-based finance application built for CS50x Final Project that lets users ma
 
 1. Clone the project:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/finance-project.git
+   git clone https://github.com/Swastitanti/CS50-Finance.git
    cd finance-project
 
 ---
 
 ## Installation-
 
-# 1. Download and unzip the project files provided by CS50
+1. Download and unzip the project files provided by CS50
 wget https://cdn.cs50.net/2024/fall/psets/9/finance.zip
 unzip finance.zip
 cd finance
