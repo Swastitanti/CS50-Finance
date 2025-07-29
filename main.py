@@ -1,5 +1,4 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+import os
 import requests
 from flask import Flask, render_template, request, redirect, session, \
     url_for
@@ -43,7 +42,7 @@ class Transcation(db.Model):
 
 
 def getQuotePrice(symbol):
-    api_key = "vrte2uzCQ7EkwRB9O75KNniqF5DZLI6z"  # Replace with your actual API key from financialmodelingprep.com
+    api_key = os.getenv("API_KEY")
     url = f"https://financialmodelingprep.com/api/v3/quote/{symbol}?apikey={api_key}"
 
     try:
