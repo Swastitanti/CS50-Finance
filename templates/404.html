@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="text-danger">404 - Not Found</h1>
+<div class="row align-items-center mt-4">
+    <div class="col-md-6">
+        <h4>{{ display_content or "Something went wrong. Please try again." }}</h4>
+        <a href="{{ url_for('home') }}" class="btn btn-dark mt-3">Back to Home</a>
+    </div>
+    <div class="col-md-6 text-center">
+        <img src="{{ url_for('static', filename='404.png') }}" alt="404" height="400" class="img-fluid">
+    </div>
+</div>
+
+{% endblock %}
