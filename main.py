@@ -64,22 +64,32 @@ def getQuotePrice(symbol):
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    # If it's a GET request, show the login form
     if request.method == 'GET':
         return render_template('login.html')
-    else:
 
+    # POST request: handle login
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    if not email or not password:
+        return render_template('incorrect_login.html')
+
+    user = User.query.filter_by(email=email).first()
+
+    # If user exists and password is correct
+    if user:
         try:
-            email = request.form['email']
-            password = request.form['password']
-            data = User.query.filter_by(email=email).first()
-            
-            if (data is not None) and ph.verify(data.password, password):
-                session['user'] = data.id
-                print (session['user'])
+            if ph.verify(user.password, password):
+                session['user'] = user.id  # Set session
+                print("Logged in user ID:", session['user'])
                 return redirect(url_for('home'))
-            return render_template('incorrect_login.html')
-        except:
-            return render_template('incorrect_login.html')
+        except Exception as e:
+            print("Password mismatch:", e)
+
+    # If anything fails
+    return render_template('incorrect_login.html')
+
 
 
 
@@ -106,12 +116,15 @@ def logout():
 
 @app.route('/home')
 def home():
-    # s = Stock.query.filter_by(owner_id =user_id).first()
-    user_id = session['user']
-    u = User.query.get(user_id)
-    stock = Stock.query.all()
+    if 'user' not in session:
+        return redirect(url_for('login'))
 
-    return render_template('home.html', stock=stock, user=user_id, cash=u.cash_in_hand)
+    user_id = session['user']
+    user = User.query.get(user_id)
+    stock = Stock.query.filter_by(owner_id=user_id).all()
+
+    return render_template('home.html', stock=stock, user=user_id, cash=user.cash_in_hand)
+
 
 @app.route('/show')
 def show():
