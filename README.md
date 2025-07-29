@@ -69,19 +69,19 @@ A web-based finance application built for CS50x Final Project that lets users ma
 
 ## Installation-
 
-1. Download and unzip the project files provided by CS50
+## 1. Download and unzip the project files provided by CS50
 wget https://cdn.cs50.net/2024/fall/psets/9/finance.zip
 unzip finance.zip
 cd finance
 
-# 2. Create and activate a virtual environment
+## 2. Create and activate a virtual environment
 python -m venv venv
 venv\Scripts\activate   # For Windows
 
-# 3. Install required packages
+## 3. Install required packages
 pip install flask flask_sqlalchemy argon2-cffi
 
-# 4. Freeze dependencies into requirements.txt
+### 4. Freeze dependencies into requirements.txt
 pip freeze > requirements.txt
 
 # 5. Rename the main application file (if needed)
