@@ -17,6 +17,11 @@ This project simulates a stock trading experience using live market data fetched
 
 ---
 
+## video
+- link: [Video Demo] (https://www.youtube.com/watch?v=Rx3nL4mobQo)
+
+---
+
 ## 🚀 Features
 
 - 🔐 User Registration & Login (hashed passwords using Argon2)
