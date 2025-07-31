@@ -1,6 +1,8 @@
 # 💸 Finance Tracker
 
-A web-based finance application built for CS50x Final Project that lets users manage their stock portfolio, track spending goals, and analyze historical transactions. Built with **Flask**, **SQLite**, **Bootstrap**, and integrated with **Financial Modeling Prep API** for real-time stock data.
+**Finance Tracker** is a web-based application created as the final project for CS50x. It enables users to manage their personal stock portfolios with real-time market data. Users can register for an account, get stock quotes, buy and sell shares, and view a full history of their transactions. The app also tracks the user’s current balance and stock holdings in a dynamic dashboard.
+
+This project simulates a stock trading experience using live market data fetched via the [Financial Modeling Prep API](https://financialmodelingprep.com/developer/docs/). The backend is built with Flask and SQLAlchemy, with authentication handled using secure Argon2 hashing.
 
 ---
 
