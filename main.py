@@ -11,11 +11,11 @@ api_key = os.getenv("ALPHA_VANTAGE_KEY")
 # print("API Key loaded:", api_key is not None)
 
 app = Flask(__name__)
-basedir = os.path.abspath(os.path.dirname(__file__))
+# basedir = os.path.abspath(os.path.dirname(__file__))
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'db.sqlite3')
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'db.sqlite3')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 # app.config['SECRET_KEY'] = 'the random string'
 app.config['SECRET_KEY'] = os.getenv("SECRET_KEY", "fallback-secret")
 
