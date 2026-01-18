@@ -14,8 +14,8 @@ __pycache__/
 flask_session/
 instance/
 
-# Databases
-*.sqlite3
+# # Databases
+# *.sqlite3
 
 # OS files
 .DS_Store
