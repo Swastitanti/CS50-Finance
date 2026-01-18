@@ -1,0 +1,22 @@
+# Virtual environments
+venv/
+.venv/
+
+# Environment variables
+.env
+.env*
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Flask runtime
+flask_session/
+instance/
+
+# Databases
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
