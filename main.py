@@ -45,48 +45,48 @@ class Transcation(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 # ====================== HELPER FUNCTION ======================
-# def getQuotePrice(symbol):
-#     """Fetch real-time stock price from Alpha Vantage"""
-#     api_key = os.getenv("ALPHA_VANTAGE_KEY")
-#     url = f"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey={api_key}"
-    
-#     try:
-#         response = requests.get(url)
-#         data = response.json()
-#         quote = data.get("Global Quote", {})
-#         price = quote.get("05. price")
-#         if price:
-#             return float(price)
-#         return None
-#     except Exception as e:
-#         print("Error while fetching quote:", e)
-#         return None
-
 def getQuotePrice(symbol):
+    """Fetch real-time stock price from Alpha Vantage"""
     api_key = os.getenv("ALPHA_VANTAGE_KEY")
-    if not api_key:
+    url = f"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey={api_key}"
+    
+    try:
+        response = requests.get(url)
+        data = response.json()
+        quote = data.get("Global Quote", {})
+        price = quote.get("05. price")
+        if price:
+            return float(price)
+        return None
+    except Exception as e:
+        print("Error while fetching quote:", e)
         return None
 
-    url = "https://www.alphavantage.co/query"
-    params = {
-        "function": "GLOBAL_QUOTE",
-        "symbol": symbol,
-        "apikey": api_key
-    }
+# def getQuotePrice(symbol):
+#     api_key = os.getenv("ALPHA_VANTAGE_KEY")
+#     if not api_key:
+#         return None
 
-    response = requests.get(url, params=params)
-    data = response.json()
+#     url = "https://www.alphavantage.co/query"
+#     params = {
+#         "function": "GLOBAL_QUOTE",
+#         "symbol": symbol,
+#         "apikey": api_key
+#     }
 
-    if "Note" in data or "Error Message" in data:
-        print("Alpha Vantage error:", data)
-        return None
+#     response = requests.get(url, params=params)
+#     data = response.json()
 
-    quote = data.get("Global Quote")
-    if not quote:
-        return None
+#     if "Note" in data or "Error Message" in data:
+#         print("Alpha Vantage error:", data)
+#         return None
 
-    price = quote.get("05. price")
-    return float(price) if price else None
+#     quote = data.get("Global Quote")
+#     if not quote:
+#         return None
+
+#     price = quote.get("05. price")
+#     return float(price) if price else None
 
 
 
