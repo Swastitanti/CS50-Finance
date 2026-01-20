@@ -581,4 +581,5 @@ if __name__ == '__main__':
     #Added secret key that the top app.secret_key = 'super secret key'
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run()
