@@ -44,7 +44,7 @@ class Transcation(db.Model):
 def getQuotePrice(symbol):
     api_key = os.getenv("API_KEY")
     # url = f"https://financialmodelingprep.com/api/v3/quote/{symbol}?apikey={api_key}"
-    url = f"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey={api_key}"
+    url = f"https://www.alphavantage.co/api/v3/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey={api_key}"
 
     try:
         response = requests.get(url)
